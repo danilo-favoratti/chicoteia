@@ -1,4 +1,4 @@
-import openai
+from openai import OpenAI
 import os
 from typing import Dict, List
 from dotenv import load_dotenv
@@ -7,7 +7,7 @@ load_dotenv()
 
 class AIEngine:
     def __init__(self):
-        self.client = openai.OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+        self.client = OpenAI()  # api key from OPENAI_API_KEY env
         
     def generate_npc_response(self, npc: Dict, conversation_history: List[Dict], user_message: str, game_context: Dict) -> str:
         """Generate AI response for NPC based on personality and context"""

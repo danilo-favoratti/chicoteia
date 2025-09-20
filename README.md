@@ -35,7 +35,7 @@ Navigate a tech conference and talk to 10 NPCs. Your mission:
    ```
 
 4. **Play the game:**
-   - Open http://localhost:5000 in your browser
+   - Open http://localhost:6060 in your browser
    - Works on desktop and mobile! 📱
 
 ## 🎨 Features

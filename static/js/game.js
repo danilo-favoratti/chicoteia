@@ -35,6 +35,17 @@ class Game {
                 this.sendCustomMessage();
             }
         });
+
+        // ESC key to return to conference room
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                // Only work if we're in a conversation (chat interface is visible)
+                const chatInterface = document.getElementById('chatInterface');
+                if (chatInterface.style.display === 'flex') {
+                    this.showConferenceRoom();
+                }
+            }
+        });
     }
 
     async startNewGame() {
@@ -88,11 +99,16 @@ class Game {
             let avatarStyle = `background-color: ${npc.avatar_color}`;
             
             const customAvatars = {
-                'alex_frontend': 'alexandre.png',
-                'david_devops': 'david.png', 
-                'maria_backend': 'maria.png',
-                'sarah_pm': 'sarah.png',
-                'tom_ux': 'tom.png'
+                'alex_frontend': 'alexandre.jpg',
+                'david_devops': 'david.jpg', 
+                'maria_backend': 'maria.jpg',
+                'sarah_pm': 'sarah.jpg',
+                'tom_ux': 'tom.jpg',
+                'lisa_data': 'lisa.jpg',
+                'mike_security': 'miguel.jpg',
+                'jen_founder': 'jennifer.jpg',
+                'robert_lead': 'roberto.jpg',
+                'anna_qa': 'ana.jpg'
             };
             
             if (customAvatars[npc.id]) {
@@ -398,11 +414,16 @@ class Game {
         const avatar = document.getElementById('chatNpcAvatar');
         
         const customAvatars = {
-            'alex_frontend': 'alexandre.png',
-            'david_devops': 'david.png',
-            'maria_backend': 'maria.png', 
-            'sarah_pm': 'sarah.png',
-            'tom_ux': 'tom.png'
+            'alex_frontend': 'alexandre.jpg',
+            'david_devops': 'david.jpg',
+            'maria_backend': 'maria.jpg', 
+            'sarah_pm': 'sarah.jpg',
+            'tom_ux': 'tom.jpg',
+            'lisa_data': 'lisa.jpg',
+            'mike_security': 'miguel.jpg',
+            'jen_founder': 'jennifer.jpg',
+            'robert_lead': 'roberto.jpg',
+            'anna_qa': 'ana.jpg'
         };
         
         if (customAvatars[this.currentNpc.id]) {

@@ -11,9 +11,9 @@
         <!-- Header -->
         <header class="game-header">
             <div class="game-logo-section">
-                <a href="https://www.linkedin.com/in/giovannibassi/" target="_blank" rel="noopener noreferrer" class="giovanni-link" title="Visitar LinkedIn do Giovanni Bassi">
-                    <img src="{{ url_for('static', filename='images/giovanni.png') }}" alt="Giovanni" class="giovanni-logo">
-                </a>
+                    <a href="https://www.linkedin.com/in/giovannibassi/" target="_blank" rel="noopener noreferrer" class="giovanni-link" title="Visitar LinkedIn do Giovanni Bassi">
+                        <img src="{{ url_for('static', filename='images/giovanni.jpg') }}" alt="Giovanni" class="giovanni-logo">
+                    </a>
                 <h1 class="game-title">Giovanni's Jibber Jabber</h1>
             </div>
             <div class="game-subtitle">Salve o mundo das teorias de bolha de IA do Giovanni!</div>
@@ -29,7 +29,7 @@
             <div class="conference-room" id="conferenceRoom">
                 <div class="room-title-section">
                     <a href="https://thedevconf.com/en" target="_blank" rel="noopener noreferrer" class="conference-link" title="Visitar site do TDC">
-                        <img src="{{ url_for('static', filename='images/conference.png') }}" alt="Conferência" class="conference-icon">
+                        <img src="{{ url_for('static', filename='images/conference.jpg') }}" alt="Conferência" class="conference-icon">
                     </a>
                     <h2 class="room-title">Conferência de Tecnologia - Salão Principal</h2>
                 </div>
@@ -80,6 +80,14 @@
         <div class="loading" id="loading" style="display: none;">
             <div class="spinner"></div>
             <p>Pensando...</p>
+        </div>
+
+        <!-- Creator Credit -->
+        <div class="creator-credit">
+            <a href="https://favoratti.com" target="_blank" rel="noopener noreferrer" class="creator-link" title="Criado por Favoratti">
+                <img src="{{ url_for('static', filename='images/danilo.jpg') }}" alt="Favoratti" class="creator-avatar">
+                <span class="creator-text">Criado por Favoratti</span>
+            </a>
         </div>
     </div>
 
