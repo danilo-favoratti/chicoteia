@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giovanni's Jibber Jabber - Jogo da Conferência de Tecnologia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Header -->
+        <header class="game-header">
+            <div class="game-logo-section">
+                <a href="https://www.linkedin.com/in/giovannibassi/" target="_blank" rel="noopener noreferrer" class="giovanni-link" title="Visitar LinkedIn do Giovanni Bassi">
+                    <img src="{{ url_for('static', filename='images/giovanni.png') }}" alt="Giovanni" class="giovanni-logo">
+                </a>
+                <h1 class="game-title">Giovanni's Jibber Jabber</h1>
+            </div>
+            <div class="game-subtitle">Salve o mundo das teorias de bolha de IA do Giovanni!</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+                <span class="progress-text" id="progressText">0/10 NPCs Seguros</span>
+            </div>
+        </header>
+
+        <!-- Game Area -->
+        <main class="game-main">
+            <!-- Conference Room -->
+            <div class="conference-room" id="conferenceRoom">
+                <div class="room-title-section">
+                    <a href="https://thedevconf.com/en" target="_blank" rel="noopener noreferrer" class="conference-link" title="Visitar site do TDC">
+                        <img src="{{ url_for('static', filename='images/conference.png') }}" alt="Conferência" class="conference-icon">
+                    </a>
+                    <h2 class="room-title">Conferência de Tecnologia - Salão Principal</h2>
+                </div>
+                <div class="npcs-grid" id="npcsGrid">
+                    <!-- NPCs will be populated here -->
+                </div>
+            </div>
+
+            <!-- Chat Interface -->
+            <div class="chat-interface" id="chatInterface" style="display: none;">
+                <div class="chat-header">
+                    <button class="back-btn" id="backBtn">← Voltar à Conferência</button>
+                    <div class="current-npc-info" id="currentNpcInfo">
+                        <div class="npc-avatar" id="chatNpcAvatar"></div>
+                        <div class="npc-details">
+                            <div class="npc-name" id="chatNpcName"></div>
+                            <div class="npc-role" id="chatNpcRole"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Messages will appear here -->
+                </div>
+                
+                <div class="chat-actions" id="chatActions">
+                    <!-- Action buttons will appear here based on conversation phase -->
+                </div>
+                
+                <div class="custom-message-input" id="customMessageInput" style="display: none;">
+                <input type="text" id="messageInput" placeholder="Digite sua mensagem..." maxlength="200">
+                <button id="sendMessageBtn">Enviar</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Win Modal -->
+        <div class="modal" id="winModal" style="display: none;">
+            <div class="modal-content">
+                <h2>🎉 Parabéns!</h2>
+                <p>Você salvou o mundo do Giovanni's Jibber Jabber!</p>
+                <p>Todos os NPCs agora estão convencidos de que IA não é uma bolha.</p>
+                <button class="play-again-btn" id="playAgainBtn">Jogar Novamente</button>
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Pensando...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>
