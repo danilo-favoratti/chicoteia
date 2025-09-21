@@ -164,7 +164,7 @@ class Game {
     }
 
     async askAboutGiovanni() {
-        this.addMessage('user', 'Você conhece alguém chamado Giovanni?');
+        this.addMessage('user', 'Você conhece o Giovanni?');
         this.showTyping();
         
         try {

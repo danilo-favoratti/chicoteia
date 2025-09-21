@@ -50,12 +50,15 @@ class AIEngine:
 PERSONALIDADE: {npc['personality']}
 BACKGROUND: {npc['bio']}
 
+POSIÇÃO SOBRE IA: {self._get_ai_stance_description(npc)}
+
 REGRAS IMPORTANTES DO JOGO:
 - Você está numa conferência de tecnologia para desenvolvedores backend e frontend
 - Mantenha-se no personagem {npc['name']} o tempo todo
 - Mantenha respostas com no máximo 40 palavras - seja conciso!
 - Não quebre a quarta parede ou mencione que isso é um jogo
 - RESPONDA SEMPRE EM PORTUGUÊS BRASILEIRO
+- Suas opiniões sobre IA devem ser consistentes com sua posição declarada acima
 """
 
         # Add context based on conversation phase
@@ -84,6 +87,18 @@ REGRAS IMPORTANTES DO JOGO:
             base_prompt += f"\n- Você foi convencido de que IA não é uma bolha\n- Seja positivo sobre a conversa e o futuro da IA"
             
         return base_prompt
+    
+    def _get_ai_stance_description(self, npc: Dict) -> str:
+        """Get AI stance description for the NPC"""
+        status = npc.get('status', 'unknown')
+        ai_stance = npc.get('ai_bubble_stance', 'bubble')
+        
+        if status == 'safe':
+            return "Você foi convencido de que IA não é uma bolha e está criando valor real. Seja otimista sobre o futuro da IA."
+        elif ai_stance == 'bubble':
+            return "Você acredita que o mercado de IA está numa bolha especulativa. Seja cético sobre as avaliações e hype da IA, mas não seja hostil."
+        else:
+            return "Você acredita que IA não é uma bolha e está criando valor real. Seja otimista sobre o potencial da IA."
         
     def _get_fallback_response(self, npc: Dict, user_message: str) -> str:
         """Fallback response when AI fails"""
@@ -114,6 +129,7 @@ REGRAS IMPORTANTES DO JOGO:
             system_prompt = f"""Você é {npc['name']}, um(a) {npc['role']}.
             Personalidade: {npc['personality']}
             Background: {npc['bio']}
+            Posição sobre IA: {self._get_ai_stance_description(npc)}
             Responda naturalmente e conversacionalmente em português brasileiro."""
             
             response = self.client.chat.completions.create(
@@ -142,6 +158,7 @@ REGRAS IMPORTANTES DO JOGO:
             system_prompt = f"""Você é {npc['name']}, um(a) {npc['role']}. 
             Personalidade: {npc['personality']}
             Background: {npc['bio']}
+            Posição sobre IA: {self._get_ai_stance_description(npc)}
             Seu relacionamento com Giovanni: {npc.get('giovanni_relationship', 'Você pode ou não conhecer Giovanni.')}
             
             Responda no personagem, mantendo sob 40 palavras em português brasileiro."""
