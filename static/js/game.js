@@ -49,6 +49,14 @@ class Game {
     }
 
     async startNewGame() {
+        // Track game start
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'game_start', {
+                event_category: 'game',
+                event_label: 'new_game'
+            });
+        }
+        
         this.showLoading();
         try {
             const response = await fetch('/api/start_game', {
@@ -137,6 +145,14 @@ class Game {
     }
 
     async startConversation(npcId) {
+        // Track conversation start
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'conversation_start', {
+                event_category: 'game',
+                event_label: npcId
+            });
+        }
+        
         this.showLoading();
         try {
             const response = await fetch(`/api/start_conversation/${npcId}`, {
@@ -164,6 +180,14 @@ class Game {
     }
 
     async askAboutGiovanni() {
+        // Track Giovanni question
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'ask_giovanni', {
+                event_category: 'game',
+                event_label: this.currentNpc
+            });
+        }
+        
         this.addMessage('user', 'Você conhece o Giovanni?');
         this.showTyping();
         
@@ -196,6 +220,14 @@ class Game {
     }
 
     async askAIOpinion() {
+        // Track AI opinion question
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'ask_ai_opinion', {
+                event_category: 'game',
+                event_label: this.currentNpc
+            });
+        }
+        
         this.addMessage('user', 'O que você acha do mercado de IA? É uma bolha?');
         this.showTyping();
         
@@ -230,6 +262,17 @@ class Game {
     }
 
     async makeArgument(argumentText) {
+        // Track argument made
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'make_argument', {
+                event_category: 'game',
+                event_label: this.currentNpc,
+                custom_parameters: {
+                    argument_type: argumentText === 'chicoteia' ? 'special' : 'regular'
+                }
+            });
+        }
+        
         this.addMessage('user', argumentText);
         this.showTyping();
         
@@ -479,6 +522,14 @@ class Game {
     }
 
     showWinModal() {
+        // Track game completion
+        if (typeof gtag !== 'undefined') {
+            gtag('event', 'game_complete', {
+                event_category: 'game',
+                event_label: 'victory'
+            });
+        }
+        
         document.getElementById('winModal').style.display = 'flex';
     }
 

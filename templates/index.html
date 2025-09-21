@@ -1,9 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giovanni's Jibber Jabber - Jogo da Conferência de Tecnologia</title>
+
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.jpg') }}" type="image/x-icon">
+    <meta name="description" content="Salve o mundo das teorias de bolha de IA do Giovanni! Um jogo interativo onde você conversa com NPCs numa conferência de tecnologia.">
+    <link rel="canonical" href="{{ request.url }}">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Giovanni's Jibber Jabber - Jogo da Conferência de Tecnologia">
+    <meta property="og:description" content="Salve o mundo das teorias de bolha de IA do Giovanni! Um jogo interativo onde você conversa com NPCs numa conferência de tecnologia.">
+    <meta property="og:image" content="{{ url_for('static', filename='images/og-image.jpg', _external=True) }}">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Giovanni's Jibber Jabber">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Giovanni's Jibber Jabber - Jogo da Conferência de Tecnologia">
+    <meta name="twitter:description" content="Salve o mundo das teorias de bolha de IA do Giovanni! Um jogo interativo onde você conversa com NPCs numa conferência de tecnologia.">
+    <meta name="twitter:image" content="{{ url_for('static', filename='images/og-image.jpg', _external=True) }}">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Pixelify+Sans:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-16W495B37Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-16W495B37Y');
+    </script>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
